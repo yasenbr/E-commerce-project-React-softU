@@ -7,6 +7,7 @@ var firebaseConfig = {
   apiKey: "AIzaSyBwD9FqGShYaVr9McHeeNleG2H7xxfjkBs",
   authDomain: "e-commerce-project-react-softu.firebaseapp.com",
   databaseURL: "https://e-commerce-project-react-softu.firebaseio.com",
+  gs: "//e-commerce-project-react-softu.appspot.com",
   projectId: "e-commerce-project-react-softu",
   storageBucket: "e-commerce-project-react-softu.appspot.com",
   messagingSenderId: "197163523148",

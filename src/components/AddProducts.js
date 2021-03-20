@@ -8,7 +8,7 @@ import "../css/Login.css";
 
 export const AddProducts = () => {
   const [productName, setProductName] = useState("");
-  const [productPrice, setProductPrice] = useState(0);
+  const [productPrice, setProductPrice] = useState();
   const [productImage, setProductImage] = useState(null);
   const [productDescription, setProductDescription] = useState("");
   const [error, setError] = useState("");
@@ -56,7 +56,7 @@ export const AddProducts = () => {
               })
               .then(() => {
                 setProductName("");
-                setProductPrice(0);
+                setProductPrice();
                 setProductImage("");
                 setProductDescription("");
                 setError("");
