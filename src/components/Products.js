@@ -26,7 +26,7 @@ export const Products = () => {
                   <Card.Title>{product.ProductName}</Card.Title>
                   <Card.Text>{product.ProductDescription}</Card.Text>
                   <Button variant="primary" className="z-depth-1-half">
-                    Go somewhere
+                    Add to cart
                   </Button>
                   <div variant="primary" className="price">
                     {product.ProductPrice} €
