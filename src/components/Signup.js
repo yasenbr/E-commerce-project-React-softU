@@ -19,9 +19,9 @@ export const Signup = (props) => {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then((credentials) => {
+      .then((userCredential) => {
         db.collection("SignedUpUserList")
-          .doc(credentials.user.id)
+          .doc(userCredential.user.uid)
           .set({
             Name: name,
             Email: email,
