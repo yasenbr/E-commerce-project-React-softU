@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { auth } from "../config/config";
+import { Link } from "react-router-dom";
 
 import { Form, Button } from "react-bootstrap";
 import { Navibar } from "./Navbar";
@@ -63,10 +63,9 @@ export const Login = (props) => {
           <Button variant="primary" type="submit" className="z-depth-1-half">
             Login
           </Button>
-          {error &
-          (
+          {error && (
             <div>
-              <Alert variant="danger">{error}</Alert>
+              <Alert variant="danger mt-3">{error}</Alert>
             </div>
           )}
           <div className="mt-3">

@@ -87,10 +87,9 @@ export const Signup = (props) => {
             Register
           </Button>
 
-          {error &
-          (
+          {error && (
             <div>
-              <Alert variant="danger">{error}</Alert>
+              <Alert variant="danger mt-3">{error}</Alert>
             </div>
           )}
           <div className="mt-3">
