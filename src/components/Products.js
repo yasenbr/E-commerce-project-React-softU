@@ -9,7 +9,7 @@ export const Products = () => {
   return (
     <>
       {products.length !== 0 && <h1 className="text-center mt-5">Products</h1>}
-      <Container>
+      <Container className="mb-5">
         <Row>
           {products.length === 0 && (
             <div>connection problem...no products to display</div>
