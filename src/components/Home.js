@@ -1,11 +1,22 @@
-import React from "react";
+// import React, { useEffect } from "react";
 import { Navibar } from "./Navbar";
 import { Products } from "./Products";
+// import { useHistory } from "react-router-dom";
+// import { auth } from "../config/config";
 
-export const Home = () => {
+export const Home = ({ user }) => {
+  // const history = useHistory();
+  // //force user to login
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (!user) {
+  //       history.push("/login");
+  //     }
+  //   });
+  // });
   return (
     <div>
-      <Navibar />
+      <Navibar user={user} />
       <Products />
     </div>
   );
