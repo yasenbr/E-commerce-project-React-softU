@@ -3,7 +3,7 @@ import { Icon } from "react-icons-kit";
 import { cart } from "react-icons-kit/entypo/cart";
 import { useHistory } from "react-router-dom";
 import { auth } from "../config/config";
-import { Navbar, NavDropdown, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import logo from "../images/shopping-cart.svg";
 import "../css/Navbar.css";
 

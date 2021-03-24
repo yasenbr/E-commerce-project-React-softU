@@ -10,10 +10,10 @@ export const CartReducer = (state, action) => {
 
   switch (action.type) {
     case "ADD_TO_CART":
-
       const check = shoppingCart.find(
-        (product) => product.ProductId === action.id
+        (product) => product.ProductID === action.id
       );
+      console.log(action.id);
       if (check) {
         console.log("Product is already in the Cart");
         return state;
@@ -31,6 +31,7 @@ export const CartReducer = (state, action) => {
         };
       }
       break;
-    default
+    default:
+      return state;
   }
 };

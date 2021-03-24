@@ -1,10 +1,10 @@
 import React, { createContext, useReducer } from "react";
-import { CartRemoval } from "./CartRemoval";
+import { CartReducer } from "./CartReducer";
 
 export const CartContext = createContext();
 
 export const CartContextProvider = (props) => {
-  const [cart, dispatch] = useReducer(CartRemoval, {
+  const [cart, dispatch] = useReducer(CartReducer, {
     shoppingCart: [],
     totalPrice: 0,
     totalQ: 0,

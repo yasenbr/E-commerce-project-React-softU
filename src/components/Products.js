@@ -23,7 +23,7 @@ export const Products = () => {
               <Card
                 style={{ width: "22rem" }}
                 className="z-depth-1-half mt-5"
-                key={product.ProductId}
+                key={product.ProductID}
               >
                 <Card.Img variant="top" src={product.ProductImage} />
                 <Card.Body>
@@ -35,7 +35,7 @@ export const Products = () => {
                     onClick={() => {
                       dispatch({
                         type: "ADD_TO_CART",
-                        id: product.ProductId,
+                        id: product.ProductID,
                         product,
                       });
                     }}

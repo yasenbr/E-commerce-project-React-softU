@@ -7,7 +7,7 @@ import { Signup } from "./components/Signup";
 import { ProductsContextProvider } from "./global/ProductContext";
 
 import { auth, db } from "./config/config";
-import { cartContext, CartContextProvider } from "./global/CartContext";
+import { CartContextProvider } from "./global/CartContext";
 
 export class App extends Component {
   state = {
