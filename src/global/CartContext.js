@@ -1,7 +1,7 @@
-import React, { reacteContext, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import { CartRemoval } from "./CartRemoval";
 
-export const cartContext = createContext();
+export const CartContext = createContext();
 
 export const CartContextProvider = (props) => {
   const [cart, dispatch] = useReducer(CartRemoval, {
@@ -10,7 +10,7 @@ export const CartContextProvider = (props) => {
     totalQ: 0,
   });
   return (
-    <CartContext.createContextProvider value={{ ...cart, dispatch }}>
+    <CartContext.Provider value={{ ...cart, dispatch }}>
       {props.children}
     </CartContext.Provider>
   );
