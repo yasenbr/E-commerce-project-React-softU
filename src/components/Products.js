@@ -32,13 +32,13 @@ export const Products = () => {
                   <Button
                     variant="primary"
                     className="z-depth-1-half"
-                    onClick={() =>
+                    onClick={() => {
                       dispatch({
                         type: "ADD_TO_CART",
                         id: product.ProductId,
                         product,
-                      })
-                    }
+                      });
+                    }}
                   >
                     Add to cart
                   </Button>
