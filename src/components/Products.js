@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import { ProductsContext } from "../global/ProductContext";
+import { CartContext } from "../global/CartContext";
 import { Card, Button, Col, Row, Container } from "react-bootstrap";
 import "../css/Products.css";
 
 export const Products = () => {
   const { products } = useContext(ProductsContext);
   console.log(products);
+
+  const { CartContext } = useContext(CartContext);
   return (
     <>
       {products.length !== 0 && <h1 className="text-center mt-5">Products</h1>}
