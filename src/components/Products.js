@@ -23,7 +23,7 @@ export const Products = () => {
               <Card
                 style={{ width: "22rem" }}
                 className="z-depth-1-half mt-5"
-                key={product.ProductID}
+                id={product.ProductID}
               >
                 <Card.Img variant="top" src={product.ProductImage} />
                 <Card.Body>

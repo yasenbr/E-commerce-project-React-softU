@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Icon } from "react-icons-kit";
 import { cart } from "react-icons-kit/entypo/cart";
 import { useHistory } from "react-router-dom";
 import { auth } from "../config/config";
 import { Navbar, Nav } from "react-bootstrap";
+
+import { CartContext } from "../global/CartContext";
 import logo from "../images/shopping-cart.svg";
 import "../css/Navbar.css";
 
 export const Navibar = ({ user }) => {
   const history = useHistory();
-
+  const { totalQty } = useContext(CartContext);
   // handle logout
   const Logout = () => {
     auth.signOut().then(() => {
@@ -40,9 +42,11 @@ export const Navibar = ({ user }) => {
           {user && (
             <Nav>
               <Nav.Link href="/">{user}</Nav.Link>
-              <Nav.Link href="/cartlist">
+              <Nav.Link href="/cartlist" className="mr-1">
                 <Icon icon={cart} />
+                <span className="no-of-products">{totalQty}</span>
               </Nav.Link>
+
               <Nav.Link
                 className="btn btn-danger"
                 eventKey={2}

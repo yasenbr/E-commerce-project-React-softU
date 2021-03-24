@@ -4,6 +4,7 @@ import { Home } from "./components/Home";
 import { AddProducts } from "./components/AddProducts";
 import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
+import { Cart } from "./components/Cart";
 import { ProductsContextProvider } from "./global/ProductContext";
 
 import { auth, db } from "./config/config";
@@ -48,8 +49,8 @@ export class App extends Component {
               <Route exact path="/signup" component={Signup} />
               <Route
                 exact
-                path="/cart"
-                component={() => <Home user={this.state.user} />}
+                path="/cartlist"
+                component={() => <Cart user={this.state.user} />}
               />
             </Switch>
           </BrowserRouter>
