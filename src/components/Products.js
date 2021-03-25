@@ -19,9 +19,9 @@ export const Products = () => {
             <div>connection problem...no products to display</div>
           )}
           {products.map((product) => (
-            <Col md={4}>
+            <Col xs lg="4">
               <Card
-                style={{ width: "22rem" }}
+                style={{ width: "18rem" }}
                 className="z-depth-1-half mt-5"
                 id={product.ProductID}
               >

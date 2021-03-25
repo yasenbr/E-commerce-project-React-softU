@@ -1,5 +1,4 @@
-/* cart */
-.cart-container {
+cart .cart-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
