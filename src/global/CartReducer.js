@@ -1,11 +1,13 @@
-// import React from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 export const CartReducer = (state, action) => {
   const { shoppingCart, totalPrice, totalQty } = state;
-  console.log(state);
 
   let product;
-  // let index;
+  let index;
   let updatedPrice;
   let updatedQty;
 
@@ -14,25 +16,29 @@ export const CartReducer = (state, action) => {
       const check = shoppingCart.find(
         (product) => product.ProductID === action.id
       );
-      console.log(action.id);
-      console.log(check);
       if (check) {
-        console.log("Product is already in the Cart");
+        toast.info("this product is already in your cart", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+        });
         return state;
       } else {
         product = action.product;
         product["qty"] = 1;
-        product["totalProductPrice"] = product.ProductPrice * product.qty;
+        product["TotalProductPrice"] = product.ProductPrice * product.qty;
         updatedQty = totalQty + 1;
         updatedPrice = totalPrice + product.ProductPrice;
-
         return {
           shoppingCart: [product, ...shoppingCart],
           totalPrice: updatedPrice,
-          totalQ: updatedQty,
+          totalQty: updatedQty,
         };
       }
-      break;
     default:
       return state;
   }

@@ -9,6 +9,8 @@ export const CartContextProvider = (props) => {
     totalPrice: 0,
     totalQty: 0,
   });
+
+  console.log(cart);
   return (
     <CartContext.Provider value={{ ...cart, dispatch }}>
       {props.children}

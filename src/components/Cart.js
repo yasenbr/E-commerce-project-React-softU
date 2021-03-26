@@ -1,8 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { CartContext } from "../global/CartContext";
 import { Navibar } from "./Navbar";
 import { Icon } from "react-icons-kit";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { auth } from "../config/config";
 import "../css/Cart.css";
 
 export const Cart = ({ user }) => {
@@ -10,6 +12,15 @@ export const Cart = ({ user }) => {
     CartContext
   );
 
+  const history = useHistory();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (!user) {
+        history.push("/login");
+      }
+    });
+  });
   return (
     <>
       <Navibar user={user} />
@@ -31,7 +42,7 @@ export const Cart = ({ user }) => {
             shoppingCart.map((cart) => (
               <div className="cart-card" key={cart.ProductID}>
                 <div className="cart-img">
-                  <img src={cart.ProductImg} alt="not found" />
+                  <img src={cart.ProductImage} alt="not found" />
                 </div>
 
                 <div className="cart-name">{cart.ProductName}</div>
@@ -46,7 +57,7 @@ export const Cart = ({ user }) => {
                     dispatch({ type: "INC", id: cart.ProductID, cart })
                   }
                 >
-                  <Icon icon={"ic_add"} size={24} />
+                  {/* <Icon icon={ic_add} size={24} /> */}
                 </div>
 
                 <div className="quantity">{cart.qty}</div>
@@ -57,7 +68,7 @@ export const Cart = ({ user }) => {
                     dispatch({ type: "DEC", id: cart.ProductID, cart })
                   }
                 >
-                  <Icon icon={"ic_remove"} size={24} />
+                  {/* <Icon icon="" size={24} /> */}
                 </div>
 
                 <div className="cart-price">Rs {cart.TotalProductPrice}.00</div>
@@ -68,7 +79,7 @@ export const Cart = ({ user }) => {
                     dispatch({ type: "DELETE", id: cart.ProductID, cart })
                   }
                 >
-                  <Icon icon={"iosTrashOutline"} size={24} />
+                  {/* <Icon icon={iosTrashOutline} size={24} /> */}
                 </button>
               </div>
             ))}

@@ -6,10 +6,8 @@ import "../css/Products.css";
 
 export const Products = () => {
   const { products } = useContext(ProductsContext);
-  console.log(products);
 
   const { dispatch } = useContext(CartContext);
-  console.log(dispatch);
   return (
     <>
       {products.length !== 0 && <h1 className="text-center mt-5">Products</h1>}
@@ -23,6 +21,7 @@ export const Products = () => {
               <Card
                 style={{ width: "18rem" }}
                 className="z-depth-1-half mt-5"
+                key={product.ProductID}
                 id={product.ProductID}
               >
                 <Card.Img variant="top" src={product.ProductImage} />

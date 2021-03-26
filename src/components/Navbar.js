@@ -4,6 +4,7 @@ import { cart } from "react-icons-kit/entypo/cart";
 import { useHistory } from "react-router-dom";
 import { auth } from "../config/config";
 import { Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import { CartContext } from "../global/CartContext";
 import logo from "../images/shopping-cart.svg";
@@ -41,11 +42,13 @@ export const Navibar = ({ user }) => {
           )}
           {user && (
             <Nav>
-              <Nav.Link href="/">{user}</Nav.Link>
-              <Nav.Link href="/cartlist" className="mr-1">
-                <Icon icon={cart} />
-                <span className="no-of-products">{totalQty}</span>
-              </Nav.Link>
+              <Nav.Link>{user}</Nav.Link>
+              <span>
+                <Link to="/cartlist" className="mr-1">
+                  <Icon icon={cart} />
+                  <span className="no-of-products">{totalQty}</span>
+                </Link>
+              </span>
 
               <Nav.Link
                 className="btn btn-danger"
