@@ -48,7 +48,7 @@ export const Cart = ({ user }) => {
                 <div className="cart-name">{cart.ProductName}</div>
 
                 <div className="cart-price-orignal">
-                  Rs {cart.ProductPrice}.00
+                  € {cart.ProductPrice}.00
                 </div>
 
                 <div
@@ -71,7 +71,7 @@ export const Cart = ({ user }) => {
                   {/* <Icon icon="" size={24} /> */}
                 </div>
 
-                <div className="cart-price">Rs {cart.TotalProductPrice}.00</div>
+                <div className="cart-price">€ {cart.TotalProductPrice}.00</div>
 
                 <button
                   className="delete-btn"
