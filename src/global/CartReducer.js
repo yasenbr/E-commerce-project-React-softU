@@ -54,6 +54,24 @@ export const CartReducer = (state, action) => {
         totalPrice: updatedPrice,
         totalQty: updatedQty,
       };
+      break;
+    case "DEC":
+      product = action.cart;
+      if (product.qty > 1) {
+        product.qty = product.qty - 1;
+        product.TotalProductPrice = product.ProductPrice * product.qty;
+        updatedQty = totalQty - 1;
+        updatedPrice = totalPrice - product.ProductPrice;
+        index = shoppingCart.findIndex((cart) => cart.ProductID === action.id);
+        shoppingCart[index] = product;
+        return {
+          shoppingCart: [...shoppingCart],
+          totalPrice: updatedPrice,
+          totalQty: updatedQty,
+        };
+      } else {
+        return state;
+      }
     default:
       return state;
   }
