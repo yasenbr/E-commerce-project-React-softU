@@ -6,6 +6,7 @@ import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
 import { Cart } from "./components/Cart";
 import { ProductsContextProvider } from "./global/ProductContext";
+import { Cashout } from "./components/cashout";
 
 import { auth, db } from "./config/config";
 import { CartContextProvider } from "./global/CartContext";
@@ -51,6 +52,10 @@ export class App extends Component {
                 exact
                 path="/cartlist"
                 component={() => <Cart user={this.state.user} />}
+              />
+              <Route
+                path="/cashout"
+                component={() => <Cashout user={this.state.user} />}
               />
             </Switch>
           </BrowserRouter>
