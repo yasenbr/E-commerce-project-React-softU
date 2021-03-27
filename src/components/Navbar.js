@@ -23,13 +23,17 @@ export const Navibar = ({ user }) => {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="/">
-          <img src={logo} className="logo" alt="" />
-        </Navbar.Brand>
+        <span>
+          <Link to="/" className="navbar-brand">
+            <img src={logo} className="logo" alt="" />
+          </Link>
+        </span>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+            <Link to="/" className="nav-link">
+              Products
+            </Link>
             <Nav.Link href="/add-product">Add Product</Nav.Link>
           </Nav>
           {!user && (
@@ -44,7 +48,7 @@ export const Navibar = ({ user }) => {
             <Nav>
               <Nav.Link>{user}</Nav.Link>
               <span>
-                <Link to="/cartlist" className="mr-1">
+                <Link to="cartlist" className="mr-1 nav-link">
                   <Icon icon={cart} />
                   <span className="no-of-products">{totalQty}</span>
                 </Link>
