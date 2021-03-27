@@ -72,6 +72,26 @@ export const CartReducer = (state, action) => {
       } else {
         return state;
       }
+
+    case "DELETE":
+      const filtered = shoppingCart.filter(
+        (product) => product.ProductID !== action.id
+      );
+      product = action.cart;
+      updatedQty = totalQty - product.qty;
+      updatedPrice = totalPrice - product.qty * product.ProductPrice;
+      return {
+        shoppingCart: [...filtered],
+        totalPrice: updatedPrice,
+        totalQty: updatedQty,
+      };
+    case "EMPTY":
+      return {
+        shoppingCart: [],
+        totalPrice: 0,
+        totalQty: 0,
+      };
+
     default:
       return state;
   }
