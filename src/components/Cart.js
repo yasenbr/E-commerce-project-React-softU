@@ -2,6 +2,9 @@ import React, { useContext, useEffect } from "react";
 import { CartContext } from "../global/CartContext";
 import { Navibar } from "./Navbar";
 import { Icon } from "react-icons-kit";
+import { ic_add_circle } from "react-icons-kit/md/ic_add_circle";
+import { ic_remove_circle } from "react-icons-kit/md/ic_remove_circle";
+import { ic_delete_forever } from "react-icons-kit/md/ic_delete_forever";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { auth } from "../config/config";
@@ -25,7 +28,9 @@ export const Cart = ({ user }) => {
     <>
       <Navibar user={user} />
       <>
-        {shoppingCart.length !== 0 && <h1>Cart</h1>}
+        {shoppingCart.length !== 0 && (
+          <h1 className="text-center mt-5">Cart</h1>
+        )}
         <div className="cart-container">
           {shoppingCart.length === 0 && (
             <>
@@ -57,7 +62,7 @@ export const Cart = ({ user }) => {
                     dispatch({ type: "INC", id: cart.ProductID, cart })
                   }
                 >
-                  {/* <Icon icon={ic_add} size={24} /> */}
+                  <Icon icon={ic_add_circle} size={24} />
                 </div>
 
                 <div className="quantity">{cart.qty}</div>
@@ -68,7 +73,7 @@ export const Cart = ({ user }) => {
                     dispatch({ type: "DEC", id: cart.ProductID, cart })
                   }
                 >
-                  {/* <Icon icon="" size={24} /> */}
+                  <Icon icon={ic_remove_circle} size={24} />
                 </div>
 
                 <div className="cart-price">€ {cart.TotalProductPrice}.00</div>
@@ -79,7 +84,7 @@ export const Cart = ({ user }) => {
                     dispatch({ type: "DELETE", id: cart.ProductID, cart })
                   }
                 >
-                  {/* <Icon icon={iosTrashOutline} size={24} /> */}
+                  <Icon icon={ic_delete_forever} size={24} />
                 </button>
               </div>
             ))}
