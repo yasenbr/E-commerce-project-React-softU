@@ -4,6 +4,7 @@ import { auth, db } from "../config/config";
 import { useHistory } from "react-router-dom";
 import { CartContext } from "../global/CartContext";
 import { Container } from "react-bootstrap";
+import { Alert } from "react-bootstrap";
 
 export const Cashout = (props) => {
   const history = useHistory();
@@ -73,12 +74,15 @@ export const Cashout = (props) => {
             <br />
             <h2 className="text-center">Cashout Details</h2>
             <br />
-            {successMsg && <div className="success-msg">{successMsg}</div>}
+            {successMsg && (
+              <div>
+                <Alert variant="success mt-3">{successMsg}</Alert>
+              </div>
+            )}
             <form
               autoComplete="off"
               className="form-group z-depth-1-half"
-              onSubmit="{cashoutSubmit}
-              "
+              onSubmit={cashoutSubmit}
             >
               <label htmlFor="name">Name</label>
               <input
@@ -139,7 +143,11 @@ export const Cashout = (props) => {
                 SUBMIT
               </button>
             </form>
-            {error && <span className="error-msg">{error}</span>}
+            {error && (
+              <div>
+                <Alert variant="danger mt-3">{error}</Alert>
+              </div>
+            )}
           </div>
         </Container>
       </>
