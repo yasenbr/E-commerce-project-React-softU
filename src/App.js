@@ -25,6 +25,7 @@ export class App extends Component {
           .then((snapshot) => {
             this.setState({
               user: snapshot.data().Name,
+              type: snapshot.data().Type,
             });
           });
       } else {
@@ -43,9 +44,17 @@ export class App extends Component {
               <Route
                 exact
                 path="/"
-                component={() => <Home user={this.state.user} />}
+                component={() => (
+                  <Home user={this.state.user} type={this.state.type} />
+                )}
               />
-              <Route exact path="/add-product" component={AddProducts} />
+              <Route
+                exact
+                path="/add-product"
+                component={() => (
+                  <AddProducts user={this.state.user} type={this.state.type} />
+                )}
+              />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route

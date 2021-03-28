@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { storage, db } from "../config/config";
+import { useHistory } from "react-router-dom";
+import { auth } from "../config/config";
 
 import { Navibar } from "./Navbar";
 import { Alert } from "react-bootstrap";
 import "../css/Login.css";
 
-export const AddProducts = () => {
+export const AddProducts = ({ user, type }) => {
+  const history = useHistory();
+  console.log(user, type);
+  if (user) {
+    if (type !== "admin") {
+      history.push("/");
+    }
+  } else if (user === null) {
+    history.push("/");
+  }
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState();
   const [productImage, setProductImage] = useState(null);
@@ -70,7 +81,7 @@ export const AddProducts = () => {
 
   return (
     <div>
-      <Navibar />
+      <Navibar user={user} />
       <div className="">
         <div className="container">
           <h4 className="title pt-5">Add product</h4>

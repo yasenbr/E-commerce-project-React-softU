@@ -26,6 +26,7 @@ export const Signup = (props) => {
             Name: name,
             Email: email,
             Password: password,
+            Type: "client",
           })
           .then(() => {
             setName("");

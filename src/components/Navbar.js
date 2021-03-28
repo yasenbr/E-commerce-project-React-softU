@@ -10,7 +10,7 @@ import { CartContext } from "../global/CartContext";
 import logo from "../images/shopping-cart.svg";
 import "../css/Navbar.css";
 
-export const Navibar = ({ user }) => {
+export const Navibar = ({ user, type }) => {
   const history = useHistory();
   const { totalQty } = useContext(CartContext);
   // handle logout
@@ -34,7 +34,13 @@ export const Navibar = ({ user }) => {
             <Link to="/" className="nav-link">
               Products
             </Link>
-            <Nav.Link href="/add-product">Add Product</Nav.Link>
+            {type === "admin" && (
+              <Nav>
+                <Link to="/add-product" className="nav-link">
+                  Add Product
+                </Link>
+              </Nav>
+            )}
           </Nav>
           {!user && (
             <Nav>

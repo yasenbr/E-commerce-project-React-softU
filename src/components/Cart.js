@@ -6,7 +6,7 @@ import { ic_add_circle } from "react-icons-kit/md/ic_add_circle";
 import { ic_remove_circle } from "react-icons-kit/md/ic_remove_circle";
 import { ic_delete_forever } from "react-icons-kit/md/ic_delete_forever";
 
-import { Container } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { auth } from "../config/config";
@@ -98,14 +98,14 @@ export const Cart = ({ user }) => {
                 </>
               ))}
             {shoppingCart.length > 0 && (
-              <div className="cart-summary z-depth-1-half">
+              <Form className="cart-summary z-depth-1-half login">
                 <div className="cart-summary-heading">Cart-Summary</div>
                 <div className="cart-summary-price">
                   <span>Total Price</span>
                   <span>{totalPrice}</span>
                 </div>
                 <div className="cart-summary-price">
-                  <span>Total Qty</span>
+                  <span>Total Quantity</span>
                   <span>{totalQty}</span>
                 </div>
                 <Link to="cashout" className="cashout-link">
@@ -116,7 +116,7 @@ export const Cart = ({ user }) => {
                     Cash on delivery
                   </button>
                 </Link>
-              </div>
+              </Form>
             )}
           </div>
         </Container>

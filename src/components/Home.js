@@ -4,7 +4,7 @@ import { Products } from "./Products";
 // import { useHistory } from "react-router-dom";
 // import { auth } from "../config/config";
 
-export const Home = ({ user }) => {
+export const Home = ({ user, type }) => {
   // const history = useHistory();
   // //force user to login
   // useEffect(() => {
@@ -16,7 +16,7 @@ export const Home = ({ user }) => {
   // });
   return (
     <div>
-      <Navibar user={user} />
+      <Navibar user={user} type={type} />
       <Products />
     </div>
   );
