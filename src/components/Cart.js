@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 import { auth } from "../config/config";
 import "../css/Cart.css";
 
-export const Cart = ({ user }) => {
+export const Cart = ({ user, type }) => {
   const { shoppingCart, dispatch, totalPrice, totalQty } = useContext(
     CartContext
   );
@@ -28,7 +28,7 @@ export const Cart = ({ user }) => {
   });
   return (
     <>
-      <Navibar user={user} />
+      <Navibar user={user} type={type} />
       <>
         {shoppingCart.length !== 0 && (
           <h1 className="text-center mt-5 mb-5">Cart</h1>

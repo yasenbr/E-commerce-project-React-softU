@@ -81,7 +81,7 @@ export const AddProducts = ({ user, type }) => {
 
   return (
     <div>
-      <Navibar user={user} />
+      <Navibar user={user} type={type} />
       <div className="">
         <div className="container">
           <h4 className="title pt-5">Add product</h4>
@@ -132,7 +132,7 @@ export const AddProducts = ({ user, type }) => {
             />
           </Form.Group>
           <Button variant="primary" type="submit" className="z-depth-1-half">
-            Submit
+            Add Product
           </Button>
           {error &
           (

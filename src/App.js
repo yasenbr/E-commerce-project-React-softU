@@ -60,11 +60,15 @@ export class App extends Component {
               <Route
                 exact
                 path="/cartlist"
-                component={() => <Cart user={this.state.user} />}
+                component={() => (
+                  <Cart user={this.state.user} type={this.state.type} />
+                )}
               />
               <Route
                 path="/cashout"
-                component={() => <Cashout user={this.state.user} />}
+                component={() => (
+                  <Cashout user={this.state.user} type={this.state.type} />
+                )}
               />
             </Switch>
           </BrowserRouter>
