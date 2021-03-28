@@ -34,6 +34,36 @@ export const Cashout = (props) => {
     });
   });
 
+  const cashoutSubmit = (e) => {
+    e.preventDefault();
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        const date = new Date();
+        const time = date.getTime();
+        db.collection("BuyerInfo" + user.uid)
+          .doc("_" + time)
+          .set({
+            BuyerName: name,
+            BuyerEmail: email,
+            BuyerPhone: phone,
+            BuyerAddress: address,
+            BuyerPayment: totalPrice,
+            BuyerQuantity: totalQty,
+          })
+          .then(() => {
+            setPhone("");
+            setAddress("");
+            dispatch({ type: "EMPTY" });
+            setSuccesMsg("Your order was registred successfully");
+            setTimeout(() => {
+              history.push("/");
+            }, 3000);
+          })
+          .catch((err) => setError(err.message));
+      }
+    });
+  };
+
   return (
     <>
       <Navibar user={props.user} />
