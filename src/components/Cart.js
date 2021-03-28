@@ -6,6 +6,7 @@ import { ic_add_circle } from "react-icons-kit/md/ic_add_circle";
 import { ic_remove_circle } from "react-icons-kit/md/ic_remove_circle";
 import { ic_delete_forever } from "react-icons-kit/md/ic_delete_forever";
 
+import { Alert } from "react-bootstrap";
 import { Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -38,11 +39,11 @@ export const Cart = ({ user, type }) => {
             {shoppingCart.length === 0 && (
               <>
                 <div>
-                  no items in your cart or slow internet causing trouble
-                  (Refresh the page) or you are not logged in
-                </div>
-                <div>
-                  <Link to="/">Return to Home page</Link>
+                  <Alert variant="warning mt-3 z-depth-1-half">
+                    no items in your cart or slow internet causing trouble
+                    (Refresh the page) or you are not logged in
+                    <Link to="/"> Return to Home page</Link>
+                  </Alert>
                 </div>
               </>
             )}

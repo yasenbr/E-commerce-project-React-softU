@@ -102,7 +102,7 @@ export const AddProducts = ({ user, type }) => {
             />
           </Form.Group>
           <Form.Group className="from-group">
-            <Form.Label>Produc Price</Form.Label>
+            <Form.Label>Product Price</Form.Label>
             <Form.Control
               type="number"
               placeholder="Product Price"

@@ -77,17 +77,17 @@ export const Cashout = (props) => {
       </div>
       <br />
       <br />
-      <div className="container">
-        {successMsg && (
-          <div>
-            <Alert variant="success mt-3">{successMsg}</Alert>
-          </div>
-        )}
+      <div className="container mb-5">
         <Form
           autoComplete="off"
           className="z-depth-1-half pt-5 login"
           onSubmit={cashoutSubmit}
         >
+          {successMsg && (
+            <div>
+              <Alert variant="success mt-3 z-depth-1-half">{successMsg}</Alert>
+            </div>
+          )}
           <Form.Group className="from-group">
             <Form.Label>Name</Form.Label>
             <Form.Control type="text" value={name} required disabled />
