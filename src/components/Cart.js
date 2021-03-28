@@ -31,7 +31,7 @@ export const Cart = ({ user, type }) => {
       <Navibar user={user} type={type} />
       <>
         {shoppingCart.length !== 0 && (
-          <h1 className="text-center mt-5 mb-5">Cart</h1>
+          <h1 className="text-center pt-5 mt-5 mb-5">Cart</h1>
         )}
         <Container className="mb-5">
           <div className="cart-container">

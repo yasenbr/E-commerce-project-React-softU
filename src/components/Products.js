@@ -10,7 +10,9 @@ export const Products = () => {
   const { dispatch } = useContext(CartContext);
   return (
     <>
-      {products.length !== 0 && <h1 className="text-center mt-5">Products</h1>}
+      {products.length !== 0 && (
+        <h1 className="text-center pt-5 mt-5 mb-5">Products</h1>
+      )}
       <Container className="mb-5">
         <Row>
           {products.length === 0 && (
