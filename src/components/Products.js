@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ProductsContext } from "../global/ProductContext";
 import { CartContext } from "../global/CartContext";
-import { Card, Button, Col, Row, Container } from "react-bootstrap";
+import { Card, Button, Col, Row, Container, Form } from "react-bootstrap";
 import "../css/Products.css";
 
 export const Products = () => {
@@ -29,7 +29,12 @@ export const Products = () => {
                 <Card.Img variant="top" src={product.ProductImage} />
                 <Card.Body>
                   <Card.Title>{product.ProductName}</Card.Title>
+                  <hr />
+                  <Card.Text>
+                    <h6>Description:</h6>
+                  </Card.Text>
                   <Card.Text>{product.ProductDescription}</Card.Text>
+                  <hr />
                   <Button
                     variant="primary"
                     className="z-depth-1-half"
