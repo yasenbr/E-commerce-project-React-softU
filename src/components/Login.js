@@ -27,7 +27,7 @@ export const Login = (props) => {
       <Navibar />
       <div className="">
         <div className="container">
-          <h4 className="text-center pt-5 mt-5 mb-5">Login</h4>
+          <h1 className="text-center pt-5 mt-5 mb-5">Login</h1>
         </div>
       </div>
       <br />
