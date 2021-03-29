@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { storage, db } from "../config/config";
 import { useHistory } from "react-router-dom";
-import { auth } from "../config/config";
 
 import { Navibar } from "./Navbar";
 import { Alert } from "react-bootstrap";
