@@ -38,7 +38,6 @@ export const Products = () => {
                   <Button
                     variant="primary"
                     className="z-depth-1-half"
-                    type="submit"
                     onClick={() => {
                       dispatch({
                         type: "ADD_TO_CART",

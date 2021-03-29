@@ -126,8 +126,7 @@ export const Cashout = (props) => {
           <Button variant="primary" type="submit" className="z-depth-1-half">
             Submit
           </Button>
-          {error &
-          (
+          {error && (
             <div>
               <Alert variant="danger">{error}</Alert>
             </div>

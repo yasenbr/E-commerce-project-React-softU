@@ -133,8 +133,7 @@ export const AddProducts = ({ user, type }) => {
           <Button variant="primary" type="submit" className="z-depth-1-half">
             Add Product
           </Button>
-          {error &
-          (
+          {error && (
             <div>
               <Alert variant="danger">{error}</Alert>
             </div>
