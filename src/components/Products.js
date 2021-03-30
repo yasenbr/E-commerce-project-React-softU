@@ -4,7 +4,7 @@ import { CartContext } from "../global/CartContext";
 import { Card, Button, Col, Row, Container } from "react-bootstrap";
 import "../css/Products.css";
 
-export const Products = () => {
+export const Products = ({ user }) => {
   const { products } = useContext(ProductsContext);
 
   const { dispatch } = useContext(CartContext);
@@ -39,11 +39,15 @@ export const Products = () => {
                     variant="primary"
                     className="z-depth-1-half"
                     onClick={() => {
-                      dispatch({
-                        type: "ADD_TO_CART",
-                        id: product.ProductID,
-                        product,
-                      });
+                      if (!user) {
+                        return;
+                      } else {
+                        dispatch({
+                          type: "ADD_TO_CART",
+                          id: product.ProductID,
+                          product,
+                        });
+                      }
                     }}
                   >
                     Add to cart
