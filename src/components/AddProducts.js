@@ -80,7 +80,7 @@ export const AddProducts = ({ user, type }) => {
 
   return (
     <div>
-      <Navibar user={user} type={type} />
+      {/* <Navibar user={user} type={type} /> */}
       <div className="">
         <div className="container">
           <h1 className="text-center pt-5 mt-5 mb-5">Add product</h1>

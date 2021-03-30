@@ -69,7 +69,7 @@ export const Cashout = (props) => {
 
   return (
     <div>
-      <Navibar user={props.user} type={props.type} />
+      <Navibar user={props.user} type={props.type} userId={props.userId} />
       <div className="">
         <div className="container">
           <h1 className="text-center pt-5 mt-5 mb-5">Cash out</h1>

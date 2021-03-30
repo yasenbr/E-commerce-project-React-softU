@@ -10,7 +10,7 @@ import { CartContext } from "../global/CartContext";
 import logo from "../images/shopping-cart.svg";
 import "../css/Navbar.css";
 
-export const Navibar = ({ user, type }) => {
+export const Navibar = ({ user, type, userId }) => {
   const history = useHistory();
   const { totalQty } = useContext(CartContext);
   // handle logout
@@ -52,7 +52,11 @@ export const Navibar = ({ user, type }) => {
           )}
           {user && (
             <Nav>
-              <Nav.Link>{user}</Nav.Link>
+              <span>
+                <Link to={`/user-info/${userId}`} className="nav-link">
+                  {user}
+                </Link>
+              </span>
               <span>
                 <Link to="cartlist" className="mr-1 nav-link">
                   <Icon icon={cart} />
