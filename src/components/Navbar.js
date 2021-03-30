@@ -34,6 +34,9 @@ export const Navibar = ({ user, type, userId }) => {
             <Link to="/" className="nav-link">
               Products
             </Link>
+            <Link to="/about" className="nav-link">
+              About Us
+            </Link>
             {type === "admin" && (
               <Nav>
                 <Link to="/add-product" className="nav-link">
@@ -58,7 +61,7 @@ export const Navibar = ({ user, type, userId }) => {
                 </Link>
               </span>
               <span>
-                <Link to="cartlist" className="mr-1 nav-link">
+                <Link to="/cartlist" className="mr-1 nav-link">
                   <Icon icon={cart} />
                   <span className="no-of-products">{totalQty}</span>
                 </Link>

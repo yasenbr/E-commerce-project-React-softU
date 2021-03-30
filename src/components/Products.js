@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ProductsContext } from "../global/ProductContext";
 import { CartContext } from "../global/CartContext";
-import { Card, Button, Col, Row, Container, Form } from "react-bootstrap";
+import { Card, Button, Col, Row, Container } from "react-bootstrap";
 import "../css/Products.css";
 
 export const Products = () => {
