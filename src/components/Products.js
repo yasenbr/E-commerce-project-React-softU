@@ -2,18 +2,27 @@ import React, { useContext } from "react";
 import { ProductsContext } from "../global/ProductContext";
 import { CartContext } from "../global/CartContext";
 import { Card, Button, Col, Row, Container } from "react-bootstrap";
+import { Alert } from "react-bootstrap";
 import "../css/Products.css";
 
 export const Products = ({ user }) => {
   const { products } = useContext(ProductsContext);
-
+  let message = "you can only consult to add to cart you need to be logged in";
   const { dispatch } = useContext(CartContext);
   return (
     <>
       {products.length !== 0 && (
         <h1 className="text-center pt-5 mt-5 mb-5">Products</h1>
       )}
+
       <Container className="mb-5">
+        <div className="row">
+          {!user && (
+            <div>
+              <Alert variant="warning mt-3 z-depth-1-half">{message}</Alert>
+            </div>
+          )}
+        </div>
         <Row>
           {products.length === 0 && (
             <div>connection problem...no products to display</div>
