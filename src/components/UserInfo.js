@@ -1,4 +1,5 @@
 import React from "react";
+import { Orders } from "./Orders";
 
 import { Navibar } from "./Navbar";
 import { Card } from "react-bootstrap";
@@ -40,6 +41,7 @@ export const UserInfo = ({ user, type, userId }) => {
           </Card.Body>
         </Card>
       </div>
+      <Orders userId={userId} />
     </div>
   );
 };
