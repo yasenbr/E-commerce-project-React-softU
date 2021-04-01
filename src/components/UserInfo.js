@@ -41,6 +41,13 @@ export const UserInfo = ({ user, type, userId }) => {
           </Card.Body>
         </Card>
       </div>
+      <div className="pt-5 mt-5 mb-5">
+        <div className="container">
+          <h1 className="text-center">Orders list</h1>
+        </div>
+      </div>
+      <br />
+      <br />
       <Orders userId={userId} />
     </div>
   );

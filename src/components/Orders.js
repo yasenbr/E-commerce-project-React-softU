@@ -22,7 +22,7 @@ export const Orders = ({ userId }) => {
         <div className="container">
           <Card
             style={{ width: "50%" }}
-            className="z-depth-1-half pt-5 userInfo"
+            className="z-depth-1-half pt-5 userInfo mb-5"
           >
             <Card.Body>
               <div className="row">
