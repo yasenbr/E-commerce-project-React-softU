@@ -41,9 +41,10 @@ export const Cashout = (props) => {
       if (user) {
         const date = new Date();
         const time = date.getTime();
-        db.collection("BuyerInfo" + user.uid)
-          .doc("_" + time)
+        db.collection("BuyerInfo")
+          .doc(user.uid + "_" + time)
           .set({
+            BuyerId: user.uid,
             BuyerName: name,
             BuyerEmail: email,
             BuyerPhone: phone,

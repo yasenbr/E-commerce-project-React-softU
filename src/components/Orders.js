@@ -4,13 +4,21 @@ import { Card } from "react-bootstrap";
 import "../css/Products.css";
 
 export const Orders = ({ userId }) => {
+  const userOrders = [];
   const { orders } = useContext(OrdersContext);
+  console.log(orders);
+  orders.forEach((order) => {
+    if (order.OrderId === userId) {
+      userOrders.push(order);
+    }
+    console.log(userOrders);
+  });
   return (
     <>
       {orders.length === 0 && (
         <div>connection problem...no orders to display</div>
       )}
-      {orders.map((order) => (
+      {userOrders.map((order) => (
         <div className="container">
           <Card
             style={{ width: "50%" }}
@@ -22,7 +30,7 @@ export const Orders = ({ userId }) => {
                   Order ID:{" "}
                 </div>
                 <div className="col-sm-6 col-lg-8 mb-2  h6">
-                  {orders.OrderID}
+                  {order.OrderId}
                 </div>
               </div>
               <div className="row">

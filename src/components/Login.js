@@ -16,7 +16,8 @@ export const Login = (props) => {
     e.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(() => {
+      .then((userCredential) => {
+        console.log(userCredential.uid);
         console.log("succesful login");
         props.history.push("/");
       })

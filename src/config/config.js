@@ -16,6 +16,15 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    console.log("Logged In:");
+    console.log(user.uid);
+    return user.uid;
+  } else {
+    console.log("logged out:");
+  }
+});
 
 const auth = firebase.auth();
 const db = firebase.firestore();

@@ -4,11 +4,6 @@ import { db } from "../config/config";
 export const OrdersContext = createContext();
 
 export class OrdersContextProvider extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props);
-    console.log(this.props.children._owner);
-  }
   //set initail state with empty array
   state = {
     orders: [],
@@ -19,11 +14,10 @@ export class OrdersContextProvider extends React.Component {
     //retrive the product
     db.collection("BuyerInfo").onSnapshot((snapshot) => {
       let changes = snapshot.docChanges();
-      console.log(changes);
       changes.forEach((change) => {
         if (change.type === "added") {
           prevOrders.push({
-            OrderID: change.doc.id,
+            OrderId: change.doc.data().BuyerId,
             OrderPrice: change.doc.data().BuyerPayment,
             OrderQuantity: change.doc.data().BuyerQuantity,
             OrderAddress: change.doc.data().BuyerAddress,
