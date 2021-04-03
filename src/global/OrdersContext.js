@@ -17,7 +17,8 @@ export class OrdersContextProvider extends React.Component {
       changes.forEach((change) => {
         if (change.type === "added") {
           prevOrders.push({
-            OrderId: change.doc.data().BuyerId,
+            OrderId: change.doc.id,
+            OrderBuyer: change.doc.data().BuyerId,
             OrderPrice: change.doc.data().BuyerPayment,
             OrderQuantity: change.doc.data().BuyerQuantity,
             OrderAddress: change.doc.data().BuyerAddress,

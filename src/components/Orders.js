@@ -8,7 +8,8 @@ export const Orders = ({ userId }) => {
   const { orders } = useContext(OrdersContext);
   console.log(orders);
   orders.forEach((order) => {
-    if (order.OrderId === userId) {
+    console.log(order);
+    if (order.OrderBuyer === userId) {
       userOrders.push(order);
     }
     console.log(userOrders);
