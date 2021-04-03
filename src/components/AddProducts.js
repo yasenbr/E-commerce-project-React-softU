@@ -66,7 +66,7 @@ export const AddProducts = ({ user, type }) => {
               })
               .then(() => {
                 setProductName("");
-                setProductPrice();
+                setProductPrice("");
                 setProductImage("");
                 setProductDescription("");
                 setError("");

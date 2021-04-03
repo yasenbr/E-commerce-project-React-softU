@@ -16,6 +16,20 @@ export const Products = ({ user, type }) => {
   let message = "you can only consult to add to cart you need to be logged in";
   const { dispatch } = useContext(CartContext);
 
+  function handleRemove(id) {
+    console.log(id);
+    db.collection("Products")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("Document successfully deleted!");
+        window.location.reload(true);
+      })
+      .catch((error) => {
+        console.error("Error removing document: ", error);
+      });
+  }
+
   return (
     <>
       {products.length !== 0 && (
@@ -37,26 +51,19 @@ export const Products = ({ user, type }) => {
           {products.map((product) => (
             <Col xs lg="4">
               <Card
-                style={{ width: "18rem" }}
-                className="z-depth-1-half mt-5"
+                style={{ width: "15 rem" }}
+                className="z-depth-1-half  custom-ml-mt"
                 key={product.ProductID}
                 id={product.ProductID}
               >
-                <Card.Img variant="top" src={product.ProductImage} />
+                <div className=" el-card-overlay">
+                  <Card.Img variant="top" src={product.ProductImage} />
+                </div>
+
                 {type === "admin" && (
                   <Link
-                    to={`/delete/${product.ProductID}`}
                     className=" btn-warning btn-warning-gradient btn-round btn-floating  btn-action el-margin-left  card-2"
-                    onClick={db
-                      .collection("Products")
-                      .doc(product.ProductID)
-                      .delete()
-                      .then(() => {
-                        console.log("Document successfully deleted!");
-                      })
-                      .catch((error) => {
-                        console.error("Error removing document: ", error);
-                      })}
+                    onClick={() => handleRemove(product.ProductID)}
                   >
                     <Icon icon={ic_delete_forever} size={24} />
                   </Link>

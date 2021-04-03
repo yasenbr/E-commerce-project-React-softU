@@ -17,6 +17,7 @@ export const Navibar = ({ user, type, userId }) => {
   const Logout = () => {
     auth.signOut().then(() => {
       history.push("/login");
+      window.location.reload(true);
     });
   };
 

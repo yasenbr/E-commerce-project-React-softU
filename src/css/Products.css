@@ -2,10 +2,27 @@
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15) !important;
 }
 .price {
-  margin-left: 11rem;
+  margin-left: 12rem;
   margin-top: -2rem;
   font-size: 1.1rem;
   font-weight: bold;
+}
+.card-img-top,
+.card-img-bottom {
+  height: 285px;
+  border-radius: 5px;
+  margin-top: -2%;
+}
+.custom-ml-mt {
+  margin-top: 3rem !important;
+  margin-left: 2%;
+}
+
+.el-card-overlay {
+  margin-left: -4%;
+  margin-right: -4%;
+  box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+  border-radius: 5px;
 }
 .btn-warning-gradient {
   border: none;
