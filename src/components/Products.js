@@ -3,12 +3,19 @@ import { ProductsContext } from "../global/ProductContext";
 import { CartContext } from "../global/CartContext";
 import { Card, Button, Col, Row, Container } from "react-bootstrap";
 import { Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { db } from "../config/config";
+
+import { Icon } from "react-icons-kit";
+
+import { ic_delete_forever } from "react-icons-kit/md/ic_delete_forever";
 import "../css/Products.css";
 
-export const Products = ({ user }) => {
+export const Products = ({ user, type }) => {
   const { products } = useContext(ProductsContext);
   let message = "you can only consult to add to cart you need to be logged in";
   const { dispatch } = useContext(CartContext);
+
   return (
     <>
       {products.length !== 0 && (
@@ -36,6 +43,25 @@ export const Products = ({ user }) => {
                 id={product.ProductID}
               >
                 <Card.Img variant="top" src={product.ProductImage} />
+                {type === "admin" && (
+                  <Link
+                    to={`/delete/${product.ProductID}`}
+                    className=" btn-warning btn-warning-gradient btn-round btn-floating  btn-action el-margin-left  card-2"
+                    onClick={db
+                      .collection("Products")
+                      .doc(product.ProductID)
+                      .delete()
+                      .then(() => {
+                        console.log("Document successfully deleted!");
+                      })
+                      .catch((error) => {
+                        console.error("Error removing document: ", error);
+                      })}
+                  >
+                    <Icon icon={ic_delete_forever} size={24} />
+                  </Link>
+                )}
+
                 <Card.Body>
                   <Card.Title>{product.ProductName}</Card.Title>
                   <hr />

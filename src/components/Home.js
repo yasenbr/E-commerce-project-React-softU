@@ -17,7 +17,7 @@ export const Home = ({ user, type, userId }) => {
   return (
     <div>
       <Navibar user={user} type={type} userId={userId} />
-      <Products user={user} />
+      <Products user={user} type={type} />
     </div>
   );
 };

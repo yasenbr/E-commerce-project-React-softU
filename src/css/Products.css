@@ -7,3 +7,45 @@
   font-size: 1.1rem;
   font-weight: bold;
 }
+.btn-warning-gradient {
+  border: none;
+  background: linear-gradient(40deg, #fc6262, #ffd86f);
+}
+.el-margin-left {
+  margin-left: auto !important;
+}
+.btn-warning {
+  color: #fff !important;
+}
+.card .btn-action {
+  margin-top: -1.44rem;
+  margin-bottom: -1.44rem;
+}
+.btn-floating {
+  -webkit-box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%),
+    0 4px 15px 0 rgb(0 0 0 / 15%);
+  box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+  width: 47px;
+  height: 47px;
+  position: relative;
+  z-index: 1;
+  vertical-align: middle;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin: 10px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+}
+.btn-floating i {
+  display: inline-block;
+  width: inherit;
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 40px;
+  color: #fff;
+}
