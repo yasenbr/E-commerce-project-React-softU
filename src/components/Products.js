@@ -62,7 +62,6 @@ export const Products = ({ user, type }) => {
 
                 {type === "admin" && (
                   <Link
-                    to={product.ProductID}
                     className=" btn-warning btn-warning-gradient btn-round btn-floating  btn-action el-margin-left  card-2"
                     onClick={() => handleRemove(product.ProductID)}
                   >

@@ -39,7 +39,6 @@ export const CartReducer = (state, action) => {
           totalQty: updatedQty,
         };
       }
-      break;
 
     case "INC":
       product = action.cart;
@@ -54,7 +53,6 @@ export const CartReducer = (state, action) => {
         totalPrice: updatedPrice,
         totalQty: updatedQty,
       };
-      break;
     case "DEC":
       product = action.cart;
       if (product.qty > 1) {
