@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ProductsContext } from "../global/ProductContext";
 import { CartContext } from "../global/CartContext";
+import { cart } from "react-icons-kit/entypo/cart";
 import { Card, Button, Col, Row, Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
@@ -42,7 +43,7 @@ export const Products = ({ user, type }) => {
             <div>connection problem...no products to display</div>
           )}
           {products.map((product) => (
-            <Col xs lg="4">
+            <Col xs lg="3">
               <Card
                 style={{ width: "15 rem" }}
                 className="z-depth-1-half  custom-ml-mt"
@@ -63,7 +64,7 @@ export const Products = ({ user, type }) => {
                 )}
 
                 <Card.Body>
-                  <Card.Title>{product.ProductName}</Card.Title>
+                  <Card.Title className="h6">{product.ProductName}</Card.Title>
                   <hr />
                   <Card.Text>
                     <h6>Description:</h6>
@@ -96,6 +97,7 @@ export const Products = ({ user, type }) => {
                       }
                     }}
                   >
+                    <Icon icon={cart} className="addCartIcone" />
                     Add to cart
                   </Button>
                   <div variant="primary" className="price">
