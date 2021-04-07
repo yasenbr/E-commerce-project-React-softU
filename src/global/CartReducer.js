@@ -18,7 +18,7 @@ export const CartReducer = (state, action) => {
       );
       if (check) {
         toast.info("this product is already in your cart", {
-          position: "top-right",
+          position: "bottom-right",
           autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,

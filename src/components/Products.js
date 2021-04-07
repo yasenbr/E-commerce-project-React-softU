@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ProductsContext } from "../global/ProductContext";
 import { CartContext } from "../global/CartContext";
 import { Card, Button, Col, Row, Container } from "react-bootstrap";
-import { Alert } from "react-bootstrap";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { db } from "../config/config";
 
@@ -13,7 +13,7 @@ import "../css/Products.css";
 
 export const Products = ({ user, type }) => {
   const { products } = useContext(ProductsContext);
-  let message = "you can only consult to add to cart you need to be logged in";
+  // let message = "you can only consult to add to cart you need to be logged in";
   const { dispatch } = useContext(CartContext);
 
   function handleRemove(id) {
@@ -37,13 +37,6 @@ export const Products = ({ user, type }) => {
       )}
 
       <Container className="mb-5">
-        <div className="row">
-          {!user && (
-            <div>
-              <Alert variant="warning mt-3 z-depth-1-half">{message}</Alert>
-            </div>
-          )}
-        </div>
         <Row>
           {products.length === 0 && (
             <div>connection problem...no products to display</div>
@@ -82,7 +75,18 @@ export const Products = ({ user, type }) => {
                     className="z-depth-1-half"
                     onClick={() => {
                       if (!user) {
-                        return;
+                        toast.error(
+                          "You need to login or register to add to cart",
+                          {
+                            position: "bottom-right",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: false,
+                            draggable: false,
+                            progress: undefined,
+                          }
+                        );
                       } else {
                         dispatch({
                           type: "ADD_TO_CART",
