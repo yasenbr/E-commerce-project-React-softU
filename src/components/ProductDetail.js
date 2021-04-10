@@ -2,12 +2,17 @@ import React, { useContext } from "react";
 import { CartContext } from "../global/CartContext";
 import { cart } from "react-icons-kit/entypo/cart";
 import { Navibar } from "./Navbar";
+import { Footer } from "./Footer";
 import { ProductsContext } from "../global/ProductContext";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { Icon } from "react-icons-kit";
+import { ic_delete_forever } from "react-icons-kit/md/ic_delete_forever";
+
+import { Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../css/ProductDetail.css";
-// import { db } from "../config/config";
+import { db } from "../config/config";
 
 export const ProductDetail = ({ user, type, userId }) => {
   const productId = window.location.pathname.slice(16);
@@ -21,6 +26,29 @@ export const ProductDetail = ({ user, type, userId }) => {
       productList.push(product);
     }
   });
+  function handleRemove(id) {
+    console.log(id);
+    db.collection("Products")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("Document successfully deleted!");
+        toast.success("Document successfully deleted!", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+        });
+
+        window.location.reload(true);
+      })
+      .catch((error) => {
+        console.error("Error removing document: ", error);
+      });
+  }
 
   return (
     <div>
@@ -32,9 +60,18 @@ export const ProductDetail = ({ user, type, userId }) => {
       </div>
       <br />
       <br />
-      {products.length === 0 && (
-        <div>connection problem...no product to display</div>
-      )}
+      <Container className="mb-5">
+        {productList.length === 0 && (
+          <>
+            <div>
+              <Alert variant="warning mt-3 z-depth-1-half">
+                no product found or connection is slow...!
+                <Link to="/"> Return to Home page</Link>
+              </Alert>
+            </div>
+          </>
+        )}
+      </Container>
       {productList.map((product) => (
         <div className="container">
           <Card className="mb-5 z-depth-1-half">
@@ -80,12 +117,23 @@ export const ProductDetail = ({ user, type, userId }) => {
                     <Icon icon={cart} className="addCartIcone" />
                     Add to cart
                   </Button>
+                  {type === "admin" && (
+                    <Button
+                      variant="danger"
+                      className="z-depth-1-half btn-mt ml-3"
+                      onClick={() => handleRemove(product.ProductID)}
+                    >
+                      <Icon icon={ic_delete_forever} className="addCartIcone" />
+                      Delete product
+                    </Button>
+                  )}
                 </Card.Body>
               </div>
             </div>
           </Card>
         </div>
       ))}
+      <Footer />
     </div>
   );
 };

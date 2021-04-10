@@ -11,6 +11,8 @@ import { Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { auth } from "../config/config";
+import { Footer } from "./Footer";
+import { RelativeFooter } from "./RelativeFooter";
 import "../css/Cart.css";
 
 export const Cart = ({ user, type, userId }) => {
@@ -122,6 +124,8 @@ export const Cart = ({ user, type, userId }) => {
           </div>
         </Container>
       </>
+      {shoppingCart.length > 0 && <RelativeFooter />}
+      {shoppingCart.length === 0 && <Footer />}
     </>
   );
 };

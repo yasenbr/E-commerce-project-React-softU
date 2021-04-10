@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { CartContext } from "../global/CartContext";
 import { Form, Button } from "react-bootstrap";
 import { Alert } from "react-bootstrap";
+import { RelativeFooter } from "./RelativeFooter";
 
 export const Cashout = (props) => {
   const history = useHistory();
@@ -134,6 +135,7 @@ export const Cashout = (props) => {
           )}
         </Form>
       </div>
+      <RelativeFooter />
     </div>
   );
 };

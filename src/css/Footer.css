@@ -1,0 +1,37 @@
+.page-footer {
+  background-color: #343a40;
+  color: #fff;
+}
+.font-small {
+  font-size: 0.9rem;
+}
+footer.page-footer .footer-copyright {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.pb-3,
+.py-3 {
+  padding-bottom: 1rem !important;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+}
+.footer-relative {
+  position: relative !important;
+}

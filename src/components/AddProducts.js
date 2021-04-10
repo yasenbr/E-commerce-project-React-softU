@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { storage, db } from "../config/config";
 import { useHistory } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import { Navibar } from "./Navbar";
+import { Footer } from "./Footer";
 import { Alert } from "react-bootstrap";
 import "../css/Login.css";
 
@@ -73,6 +74,15 @@ export const AddProducts = ({ user, type }) => {
                 document.getElementById("file").value = "";
               })
               .catch((err) => setError(err.message));
+            toast.success("Document successfully Add!", {
+              position: "top-center",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: false,
+              progress: undefined,
+            });
           });
       }
     );
@@ -144,6 +154,7 @@ export const AddProducts = ({ user, type }) => {
           )}
         </Form>
       </div>
+      <Footer />
     </div>
   );
 };

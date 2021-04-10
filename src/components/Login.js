@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { auth } from "../config/config";
 import { Link } from "react-router-dom";
+import { Footer } from "./Footer";
 
 import { Form, Button } from "react-bootstrap";
 import { Navibar } from "./Navbar";
@@ -75,6 +76,7 @@ export const Login = (props) => {
           </div>
         </Form>
       </div>
+      <Footer />
     </div>
   );
 };

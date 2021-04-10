@@ -6,6 +6,7 @@ import { Card, Button, Col, Row, Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { db } from "../config/config";
+import { Footer } from "./Footer";
 
 import { Icon } from "react-icons-kit";
 

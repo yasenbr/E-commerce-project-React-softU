@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { auth, db } from "../config/config";
+import { Footer } from "./Footer";
 
 import { Link } from "react-router-dom";
 
@@ -98,6 +99,7 @@ export const Signup = (props) => {
           </div>
         </Form>
       </div>
+      <Footer />
     </div>
   );
 };

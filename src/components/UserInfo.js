@@ -1,5 +1,6 @@
 import React from "react";
 import { Orders } from "./Orders";
+import { RelativeFooter } from "./RelativeFooter";
 
 import { Navibar } from "./Navbar";
 import { Card } from "react-bootstrap";
@@ -49,6 +50,7 @@ export const UserInfo = ({ user, type, userId }) => {
       <br />
       <br />
       <Orders userId={userId} />
+      <RelativeFooter />
     </div>
   );
 };

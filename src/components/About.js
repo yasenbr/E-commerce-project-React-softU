@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Navibar } from "./Navbar";
+import { Footer } from "./Footer";
 
 import "../css/UserInfo.css";
 
@@ -30,6 +31,7 @@ export const About = ({ user, type, userId }) => {
           from repetition, injected humour, or non-characteristic words etc.
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

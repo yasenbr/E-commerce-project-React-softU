@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { OrdersContext } from "../global/OrdersContext";
 import { Card } from "react-bootstrap";
+import { Footer } from "./Footer";
 import "../css/Products.css";
 
 export const Orders = ({ userId }) => {
   const userOrders = [];
   const { orders } = useContext(OrdersContext);
-  // console.log(orders);
   orders.forEach((order) => {
-    console.log(order);
     if (order.OrderBuyer === userId) {
       userOrders.push(order);
     }
