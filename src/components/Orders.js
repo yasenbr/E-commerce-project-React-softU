@@ -6,7 +6,7 @@ import "../css/Products.css";
 export const Orders = ({ userId }) => {
   const userOrders = [];
   const { orders } = useContext(OrdersContext);
-  console.log(orders);
+  // console.log(orders);
   orders.forEach((order) => {
     console.log(order);
     if (order.OrderBuyer === userId) {

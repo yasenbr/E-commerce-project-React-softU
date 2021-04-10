@@ -1,0 +1,15 @@
+@media (max-width: 1440px) {
+  .btn-mt {
+    margin-top: 10% !important;
+  }
+}
+@media (min-width: 1441px) {
+  .btn-mt {
+    margin-top: 20% !important;
+  }
+}
+@media (max-width: 768px) {
+  .btn-mt {
+    margin-top: 0% !important;
+  }
+}

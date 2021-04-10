@@ -10,6 +10,7 @@ import { db } from "../config/config";
 import { Icon } from "react-icons-kit";
 
 import { ic_delete_forever } from "react-icons-kit/md/ic_delete_forever";
+import { ic_info } from "react-icons-kit/md/ic_info";
 import "../css/Products.css";
 
 export const Products = ({ user, type }) => {
@@ -53,7 +54,6 @@ export const Products = ({ user, type }) => {
                 <div className=" el-card-overlay">
                   <Card.Img variant="top" src={product.ProductImage} />
                 </div>
-
                 {type === "admin" && (
                   <Link
                     className=" btn-warning btn-warning-gradient btn-round btn-floating  btn-action el-margin-left  card-2"
@@ -62,7 +62,14 @@ export const Products = ({ user, type }) => {
                     <Icon icon={ic_delete_forever} size={24} />
                   </Link>
                 )}
-
+                {type === "client" && (
+                  <Link
+                    to={`/product-detail/${product.ProductID}`}
+                    className=" btn-warning btn-warning-gradient btn-round btn-floating  btn-action el-margin-left  card-2"
+                  >
+                    <Icon icon={ic_info} size={24} />
+                  </Link>
+                )}
                 <Card.Body>
                   <Card.Title className="h6">{product.ProductName}</Card.Title>
                   <hr />

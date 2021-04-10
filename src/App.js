@@ -6,6 +6,8 @@ import { AddProducts } from "./components/AddProducts";
 import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
 import { Cart } from "./components/Cart";
+
+import { ProductDetail } from "./components/ProductDetail";
 import { ProductsContextProvider } from "./global/ProductContext";
 import { OrdersContextProvider } from "./global/OrdersContext";
 import { Cashout } from "./components/cashout";
@@ -107,6 +109,16 @@ export class App extends Component {
                   path="/user-info/"
                   component={() => (
                     <UserInfo
+                      user={this.state.user}
+                      type={this.state.type}
+                      userId={this.state.userId}
+                    />
+                  )}
+                />
+                <Route
+                  path="/product-detail/"
+                  component={() => (
+                    <ProductDetail
                       user={this.state.user}
                       type={this.state.type}
                       userId={this.state.userId}
