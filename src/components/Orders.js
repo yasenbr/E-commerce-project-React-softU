@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { OrdersContext } from "../global/OrdersContext";
 import { Card } from "react-bootstrap";
-import { Footer } from "./Footer";
 import "../css/Products.css";
 
 export const Orders = ({ userId }) => {
