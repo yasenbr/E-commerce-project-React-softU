@@ -98,6 +98,7 @@ export const AddProducts = ({ user, type }) => {
               name="productName"
               onChange={(e) => setProductName(e.target.value)}
               value={productName}
+              required
             />
           </Form.Group>
           <Form.Group className="from-group">
@@ -108,6 +109,7 @@ export const AddProducts = ({ user, type }) => {
               name="productPrice"
               onChange={(e) => setProductPrice(e.target.value)}
               value={productPrice}
+              required
             />
           </Form.Group>
           <Form.Group className="from-group">
@@ -118,6 +120,7 @@ export const AddProducts = ({ user, type }) => {
               name="productImage"
               onChange={productImgHandler}
               id="file"
+              required
             />
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -128,6 +131,7 @@ export const AddProducts = ({ user, type }) => {
               name="productDescription"
               onChange={(e) => setProductDescription(e.target.value)}
               value={productDescription}
+              required
             />
           </Form.Group>
           <Button variant="primary" type="submit" className="z-depth-1-half">
