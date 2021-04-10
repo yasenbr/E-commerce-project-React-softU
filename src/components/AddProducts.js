@@ -39,7 +39,7 @@ export const AddProducts = ({ user, type }) => {
   //add product form
   const addProduct = (e) => {
     e.preventDefault();
-    console.log(productName, productPrice, productImage, productDescription);
+    // console.log(productName, productPrice, productImage, productDescription);
 
     //image storing
     const uploadProduct = storage

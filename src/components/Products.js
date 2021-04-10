@@ -16,7 +16,6 @@ import "../css/Products.css";
 
 export const Products = ({ user, type }) => {
   const { products } = useContext(ProductsContext);
-  // let message = "you can only consult to add to cart you need to be logged in";
   const { dispatch } = useContext(CartContext);
 
   function handleRemove(id) {
