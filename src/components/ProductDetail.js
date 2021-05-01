@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../global/CartContext";
 import { cart } from "react-icons-kit/entypo/cart";
 import { Navibar } from "./Navbar";
-import { Footer } from "./Footer";
+import { RelativeFooter } from "./RelativeFooter";
 import { ProductsContext } from "../global/ProductContext";
 import { Card, Button, Container } from "react-bootstrap";
 import { toast } from "react-toastify";
@@ -133,7 +133,7 @@ export const ProductDetail = ({ user, type, userId }) => {
           </Card>
         </div>
       ))}
-      <Footer />
+      <RelativeFooter />
     </div>
   );
 };

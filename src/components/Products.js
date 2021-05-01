@@ -44,9 +44,9 @@ export const Products = ({ user, type }) => {
             <div>connection problem...no products to display</div>
           )}
           {products.map((product) => (
-            <Col xs lg="3">
+            <Col md="4">
               <Card
-                style={{ width: "15 rem" }}
+                style={{ width: "18 rem" }}
                 className="z-depth-1-half  custom-ml-mt"
                 key={product.ProductID}
                 id={product.ProductID}
