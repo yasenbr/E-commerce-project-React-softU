@@ -2,16 +2,17 @@
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15) !important;
 }
 .price {
-  margin-left: 10rem;
-  margin-top: -2rem;
   font-size: 1.1rem;
   font-weight: bold;
 }
+/* .card {
+  width: 250px;
+} */
 .card-img-top,
 .card-img-bottom {
-  height: 285px;
+  width: 100%;
   border-radius: 5px;
-  margin-top: -2%;
+  padding: 25px;
 }
 .custom-ml-mt {
   margin-top: 3rem !important;
@@ -42,8 +43,8 @@
   -webkit-box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%),
     0 4px 15px 0 rgb(0 0 0 / 15%);
   box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
-  width: 47px;
-  height: 47px;
+  width: 30px;
+  height: 30px;
   position: relative;
   z-index: 1;
   vertical-align: middle;
@@ -61,6 +62,7 @@
 .btn-floating i {
   display: inline-block;
   width: inherit;
+  margin-top: -8px;
   text-align: center;
   font-size: 1.25rem;
   line-height: 40px;
@@ -68,4 +70,18 @@
 }
 .addCartIcone {
   margin-right: 8px;
+}
+.card .products__title {
+  font-size: 15px;
+  font-weight: 600;
+}
+.categoriesList {
+  display: flex;
+  justify-content: center;
+  width: 600px;
+}
+.btn-custom {
+  margin-right: 5px;
+  border-radius: 20px !important;
+  width: 100px;
 }

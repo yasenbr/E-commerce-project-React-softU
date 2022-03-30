@@ -3,7 +3,7 @@ import { Icon } from "react-icons-kit";
 import { cart } from "react-icons-kit/entypo/cart";
 import { useHistory } from "react-router-dom";
 import { auth } from "../config/config";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import { CartContext } from "../global/CartContext";
@@ -23,7 +23,14 @@ export const Navibar = ({ user, type, userId }) => {
 
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="white"
+        variant="light"
+        className="mx-auto"
+        style={{ maxWidth: 1220 }}
+      >
         <span>
           <Link to="/" className="navbar-brand">
             <img src={logo} className="logo" alt="" />
@@ -31,7 +38,7 @@ export const Navibar = ({ user, type, userId }) => {
         </span>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="me-auto">
             <Link to="/" className="nav-link">
               Products
             </Link>

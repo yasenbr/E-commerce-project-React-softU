@@ -18,6 +18,7 @@ export const AddProducts = ({ user, type }) => {
   } else if (user === null) {
     history.push("/");
   }
+  const [productCategories, setProductCategories] = useState();
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState();
   const [productImage, setProductImage] = useState(null);
@@ -60,12 +61,14 @@ export const AddProducts = ({ user, type }) => {
           .then((url) => {
             db.collection("Products")
               .add({
+                productCategories: productCategories,
                 ProductName: productName,
                 ProductPrice: Number(productPrice),
                 ProductImage: url,
                 ProductDescription: productDescription,
               })
               .then(() => {
+                setProductCategories("");
                 setProductName("");
                 setProductPrice("");
                 setProductImage("");
@@ -100,6 +103,18 @@ export const AddProducts = ({ user, type }) => {
       <br />
       <div className="container">
         <Form className="z-depth-1-half login pt-5" onSubmit={addProduct}>
+          <Form.Label>Product Categorie</Form.Label>
+          <Form.Select
+            aria-label="Default select example"
+            name="productCategories"
+            value={productCategories}
+            onChange={(e) => setProductCategories(e.target.value)}
+          >
+            <option>Select the categorie</option>
+            <option value="shoes">shoes</option>
+            <option value="TV">TV</option>
+            <option value="Toys">Toys</option>
+          </Form.Select>
           <Form.Group className="from-group">
             <Form.Label>Product Name</Form.Label>
             <Form.Control
@@ -144,7 +159,11 @@ export const AddProducts = ({ user, type }) => {
               required
             />
           </Form.Group>
-          <Button variant="primary" type="submit" className="z-depth-1-half">
+          <Button
+            variant="primary"
+            type="submit"
+            className="z-depth-1-half mt-5"
+          >
             Add Product
           </Button>
           {error && (

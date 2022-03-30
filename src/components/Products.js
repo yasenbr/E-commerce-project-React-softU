@@ -1,22 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ProductsContext } from "../global/ProductContext";
 import { CartContext } from "../global/CartContext";
 import { cart } from "react-icons-kit/entypo/cart";
+import "../css/Products.css";
 import { Card, Button, Col, Row, Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { db } from "../config/config";
-import { Footer } from "./Footer";
 
 import { Icon } from "react-icons-kit";
 
 import { ic_delete_forever } from "react-icons-kit/md/ic_delete_forever";
 import { ic_info } from "react-icons-kit/md/ic_info";
-import "../css/Products.css";
 
 export const Products = ({ user, type }) => {
   const { products } = useContext(ProductsContext);
   const { dispatch } = useContext(CartContext);
+  const [category, setCategory] = useState("All");
+  const categories = ["All", "Shoes", "TV", "Toys"];
+  const productsList = [];
+  console.log(category);
+  console.log(products);
 
   function handleRemove(id) {
     console.log(id);
@@ -32,26 +36,50 @@ export const Products = ({ user, type }) => {
       });
   }
 
+  products.forEach((element) => {
+    if (category !== "All") {
+      if (element.ProductCategories === category) {
+        productsList.push(element);
+      }
+    } else {
+      productsList.push(element);
+    }
+  });
+
   return (
     <>
       {products.length !== 0 && (
         <h1 className="text-center pt-5 mt-5 mb-5">Products</h1>
       )}
 
-      <Container className="mb-5">
+      <Container className="mb-5 mx-auto" style={{ maxWidth: 1220 }}>
+        <Row>
+          <div className="categoriesList">
+            {categories.map((categorie) => (
+              <Button
+                variant="outline-info"
+                className="btn-custom"
+                value={categorie}
+                onClick={(e) => setCategory(e.target.value)}
+              >
+                {categorie}
+              </Button>
+            ))}
+          </div>
+        </Row>
         <Row>
           {products.length === 0 && (
             <div>connection problem...no products to display</div>
           )}
-          {products.map((product) => (
-            <Col md="4">
+          {productsList.map((product) => (
+            <Col md="2">
               <Card
-                style={{ width: "18 rem" }}
+                style={{ width: "5 rem" }}
                 className="z-depth-1-half  custom-ml-mt"
                 key={product.ProductID}
                 id={product.ProductID}
               >
-                <div className=" el-card-overlay">
+                <div className="">
                   <Card.Img variant="top" src={product.ProductImage} />
                 </div>
                 {type === "admin" && (
@@ -70,14 +98,21 @@ export const Products = ({ user, type }) => {
                     <Icon icon={ic_info} size={24} />
                   </Link>
                 )}
-                <Card.Body>
-                  <Card.Title className="h6">{product.ProductName}</Card.Title>
-                  <hr />
-                  <Card.Text>
+                <Card.Body className="text-center">
+                  <Card.Title className="products__title">
+                    {product.ProductName}
+                  </Card.Title>
+                  {/* <hr /> */}
+                  {/* <Card.Text>
                     <h6>Description:</h6>
-                  </Card.Text>
-                  <Card.Text>{product.ProductDescription}</Card.Text>
+                  </Card.Text> */}
+                  {/* <Card.Text>{product.ProductDescription}</Card.Text> */}
                   <hr />
+                  <Card.Text className="text-center">
+                    <div variant="primary" className="price">
+                      {product.ProductPrice} €
+                    </div>
+                  </Card.Text>
                   <Button
                     variant="primary"
                     className="z-depth-1-half"
@@ -107,9 +142,6 @@ export const Products = ({ user, type }) => {
                     <Icon icon={cart} className="addCartIcone" />
                     Add to cart
                   </Button>
-                  <div variant="primary" className="price">
-                    {product.ProductPrice} €
-                  </div>
                 </Card.Body>
               </Card>
             </Col>
