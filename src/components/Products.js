@@ -6,7 +6,8 @@ import "../css/Products.css";
 import { Card, Button, Col, Row, Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import { db } from "../config/config";
+// import { db } from "../config/config";
+import  {deleteElement} from "../services/productServices";
 
 import { Icon } from "react-icons-kit";
 
@@ -19,21 +20,13 @@ export const Products = ({ user, type }) => {
   const [category, setCategory] = useState("All");
   const categories = ["All", "Shoes", "TV", "Toys"];
   const productsList = [];
+
+  
   console.log(category);
   console.log(products);
 
   function handleRemove(id) {
-    console.log(id);
-    db.collection("Products")
-      .doc(id)
-      .delete()
-      .then(() => {
-        console.log("Document successfully deleted!");
-        window.location.reload(true);
-      })
-      .catch((error) => {
-        console.error("Error removing document: ", error);
-      });
+    deleteElement(id);
   }
 
   products.forEach((element) => {

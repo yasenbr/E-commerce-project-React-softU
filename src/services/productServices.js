@@ -1,24 +1,28 @@
-export const getProduct = ()=>{
-    db.collection("Products").onSnapshot((snapshot) => {
-        let changes = snapshot.docChanges();
-        changes.forEach((change) => {
-          if (change.type === "added") {
-            prevProducts.push({
-              ProductID: change.doc.id,
-              ProductName: change.doc.data().ProductName,
-              ProductPrice: change.doc.data().ProductPrice,
-              ProductImage: change.doc.data().ProductImage,
-              ProductDescription: change.doc.data().ProductDescription,
-            });
-          }
-          this.setState({
-            products: prevProducts,
-          });
+import { db } from "../config/config"; // Assuming 'db' is your Firebase database instance
+import { toast } from "react-toastify"; // Assuming you are using 'react-toastify' for displaying notifications
+
+export const getProduct = (prevProducts, setStateCallback) => {
+  db.collection("Products").onSnapshot((snapshot) => {
+    let changes = snapshot.docChanges();
+    changes.forEach((change) => {
+      if (change.type === "added") {
+        prevProducts.push({
+          ProductID: change.doc.id,
+          ProductName: change.doc.data().ProductName,
+          ProductPrice: change.doc.data().ProductPrice,
+          ProductImage: change.doc.data().ProductImage,
+          ProductDescription: change.doc.data().ProductDescription,
         });
-      });
-}
-export const deleteElement = (data)=>{
-    return db.collection("Products")
+      }
+    });
+    setStateCallback({
+      products: prevProducts,
+    });
+  });
+};
+export const deleteElement = (id) => {
+  return db
+    .collection("Products")
     .doc(id)
     .delete()
     .then(() => {
@@ -38,4 +42,4 @@ export const deleteElement = (data)=>{
     .catch((error) => {
       console.error("Error removing document: ", error);
     });
-}
+};

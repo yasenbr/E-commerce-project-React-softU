@@ -10,7 +10,7 @@ import { RelativeFooter } from "./RelativeFooter";
 export const Cashout = (props) => {
   const history = useHistory();
 
-  const { shoppingCart, totalPrice, totalQty, dispatch } = useContext(
+  const { totalPrice, totalQty, dispatch } = useContext(
     CartContext
   );
 
